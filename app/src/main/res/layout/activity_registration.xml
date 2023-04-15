@@ -10,10 +10,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <LinearLayout
                 android:id="@+id/linearLayout"
@@ -128,7 +129,8 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    app:srcCompat="@drawable/button_rectangle" />
+                    app:srcCompat="@drawable/button_rectangle"
+                    android:onClick="onClickLogin"/>
 
                 <TextView
                     android:id="@+id/textView"
@@ -171,9 +173,9 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-
-
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
 
         </LinearLayout>
 
