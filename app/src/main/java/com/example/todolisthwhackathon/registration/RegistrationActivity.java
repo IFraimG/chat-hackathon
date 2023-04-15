@@ -167,6 +167,9 @@ public class RegistrationActivity extends AppCompatActivity {
                         Toast.makeText(RegistrationActivity.this, "Поздравляем с успешной авторизоцией!", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(RegistrationActivity.this, MainActivity.class));
                     }
+                    else {
+                        Toast.makeText(RegistrationActivity.this, "Данные введены неверно", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });

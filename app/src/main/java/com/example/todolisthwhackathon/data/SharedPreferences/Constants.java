@@ -9,6 +9,4 @@ public class Constants {
 
     public static String USER_ID = "user_id"; // id пользователя
 
-    public static String HAVE_AUTO = "have_auto"; // если пользователь авторизован, то 1, иначе 0
-
 }
