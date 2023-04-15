@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#0F9D58"
-    tools:context="fragments.Page3">
+    tools:context=".fragments.Fragment_Profil">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:text="Page 3"
+        android:text="Page 2"
         android:textColor="@color/white"
         android:textSize="60sp"
         android:textStyle="bold" />

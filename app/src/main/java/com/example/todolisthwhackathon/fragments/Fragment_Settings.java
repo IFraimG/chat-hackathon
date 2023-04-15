@@ -10,9 +10,9 @@ import androidx.fragment.app.Fragment;
 
 import com.example.todolisthwhackathon.R;
 
-public class Page2 extends Fragment {
+public class Fragment_Settings extends Fragment {
 
-    public Page2() {
+    public Fragment_Settings() {
         // required empty public constructor.
     }
 
@@ -24,6 +24,6 @@ public class Page2 extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_page2, container, false);
+        return inflater.inflate(R.layout.fragment_settings, container, false);
     }
 }
