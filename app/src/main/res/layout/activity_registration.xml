@@ -100,7 +100,7 @@
                     app:srcCompat="@drawable/rectangle_big" />
 
                 <EditText
-                    android:id="@+id/password"
+                    android:id="@+id/editPassword"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"

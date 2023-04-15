@@ -5,11 +5,13 @@ import static android.content.ContentValues.TAG;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.viewpager.widget.ViewPager;
@@ -37,10 +39,13 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private TabLayout tabLayout;
 
+    private EditText editName, editPassword;
+
 
     private FirebaseFirestore db;
     private static int colUs = 0;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
                         // Документ с указанным ID существует в Firestore
+
                     } else {
                         // Документ с указанным ID не существует в Firestore
                         Intent intent = new Intent(MainActivity.this, RegistrationActivity.class);
@@ -64,6 +70,15 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        //editName = findViewById(R.id.editName);
+        //editPassword = findViewById(R.id.editPassword);
+        //SharedPreferences sPref11 = getSharedPreferences(Constants.AUTO, MODE_PRIVATE);
+        //String userName = sPref11.getString(Constants.USER_NAME, "0");
+        //SharedPreferences sPref2 = getSharedPreferences(Constants.AUTO, MODE_PRIVATE);
+        //String password = sPref2.getString(Constants.PASSWORD, "0");
+        //editName.setHint(userName);
+        //editPassword.setText(password);
 
 
         viewPager = findViewById(R.id.viewpager);
@@ -124,6 +139,11 @@ public class MainActivity extends AppCompatActivity {
                     });
 
         }
+    }
+
+    //изменение данных аккаунта пользователя
+    public void onClickExchangeData(View view) {
+
     }
 
 }

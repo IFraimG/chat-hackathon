@@ -1,12 +1,9 @@
 package com.example.todolisthwhackathon.registration;
 
-import static android.content.ContentValues.TAG;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -28,8 +25,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-
-import java.util.ArrayList;
 
 public class RegistrationActivity extends AppCompatActivity {
 
@@ -59,7 +54,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
         // initializing our edittext and buttons
         UserNameEdt = findViewById(R.id.userName);
-        PasswordEdt = findViewById(R.id.password);
+        PasswordEdt = findViewById(R.id.editPassword);
         submit = findViewById(R.id.submit);
 
         // adding on click listener for button
@@ -144,7 +139,7 @@ public class RegistrationActivity extends AppCompatActivity {
     public void onClickLogin(View view) {
         db = FirebaseFirestore.getInstance();
         UserNameEdt = findViewById(R.id.userName);
-        PasswordEdt = findViewById(R.id.password);
+        PasswordEdt = findViewById(R.id.editPassword);
         UserName = UserNameEdt.getText().toString();
         Password = PasswordEdt.getText().toString();
         CollectionReference collectionRef = db.collection("Users");
