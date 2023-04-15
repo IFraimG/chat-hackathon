@@ -2,6 +2,7 @@ package com.example.todolisthwhackathon;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.viewpager.widget.ViewPager;
@@ -10,6 +11,7 @@ import com.example.todolisthwhackathon.adapters.ViewPagerAdapter;
 import com.example.todolisthwhackathon.fragments.Fragment_Chat;
 import com.example.todolisthwhackathon.fragments.Fragment_Profil;
 import com.example.todolisthwhackathon.fragments.Fragment_Settings;
+import com.example.todolisthwhackathon.registration.RegistrationActivity;
 import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
@@ -40,5 +42,8 @@ public class MainActivity extends AppCompatActivity {
 
         tabLayout = findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(viewPager);
+
+        Intent intent = new Intent(MainActivity.this, RegistrationActivity.class);
+        startActivity(intent);
     }
 }
