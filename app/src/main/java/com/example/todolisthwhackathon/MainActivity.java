@@ -34,6 +34,10 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static String NameForProfil = ""; // имя пользователя для фрагмента аккаунта
+    public static String PasswordForProfil = ""; // пароль пользователя для фрагмента аккаунта
+    public static String UserId = ""; // id пользователя для фрагмента аккаунта
+
     private ViewPagerAdapter viewPagerAdapter;
     private ViewPager viewPager;
     private TabLayout tabLayout;
@@ -49,6 +53,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        SharedPreferences sPref11 = getSharedPreferences(Constants.AUTO, MODE_PRIVATE);
+        String userName = sPref11.getString(Constants.USER_NAME, "0");
+        String password = sPref11.getString(Constants.PASSWORD, "0");
+        String idU = sPref11.getString(Constants.USER_ID, "0");
+        NameForProfil = userName;
+        PasswordForProfil = password;
+        UserId = idU;
+
+
+
         db = FirebaseFirestore.getInstance();
         SharedPreferences sPref1 = getSharedPreferences(Constants.AUTO, MODE_PRIVATE);
         String id = sPref1.getString(Constants.USER_ID, "0");
@@ -70,14 +86,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //editName = findViewById(R.id.editName);
-        //editPassword = findViewById(R.id.editPassword);
-        //SharedPreferences sPref11 = getSharedPreferences(Constants.AUTO, MODE_PRIVATE);
-        //String userName = sPref11.getString(Constants.USER_NAME, "0");
-        //SharedPreferences sPref2 = getSharedPreferences(Constants.AUTO, MODE_PRIVATE);
-        //String password = sPref2.getString(Constants.PASSWORD, "0");
-        //editName.setHint(userName);
-        //editPassword.setText(password);
+
+
 
 
         viewPager = findViewById(R.id.viewpager);
@@ -139,10 +149,4 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
-
-    //изменение данных аккаунта пользователя
-    public void onClickExchangeData(View view) {
-
-    }
-
 }

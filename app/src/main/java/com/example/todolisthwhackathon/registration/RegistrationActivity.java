@@ -33,6 +33,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private FirebaseFirestore db;
     private static int colUs = 0;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
