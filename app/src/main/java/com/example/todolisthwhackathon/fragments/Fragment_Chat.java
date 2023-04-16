@@ -1,5 +1,7 @@
 package com.example.todolisthwhackathon.fragments;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -131,6 +133,7 @@ public class Fragment_Chat extends Fragment {
                     }
                 });
         });
+
         return view;
 
 
