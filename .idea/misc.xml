@@ -7,7 +7,7 @@
         <entry key="app/src/main/res/layout/activity_chat.xml" value="0.32721405029296874" />
         <entry key="app/src/main/res/layout/activity_habits_list.xml" value="0.13703703703703704" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.13703703703703704" />
-        <entry key="app/src/main/res/layout/chat_item.xml" value="0.20625" />
+        <entry key="app/src/main/res/layout/chat_item.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_calendar_habits.xml" value="0.13703703703703704" />
         <entry key="app/src/main/res/layout/fragment_chat.xml" value="0.20625" />
         <entry key="app/src/main/res/layout/fragment_habit_calendar.xml" value="0.17962962962962964" />

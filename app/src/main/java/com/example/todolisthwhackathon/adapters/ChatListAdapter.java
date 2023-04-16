@@ -1,5 +1,7 @@
 package com.example.todolisthwhackathon.adapters;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -8,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -39,6 +42,19 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.ViewHo
     public void onBindViewHolder(ChatListAdapter.ViewHolder holder, int position) {
         Chat chat = chats.get(position);
         holder.title.setText(chat.inviteLink);
+
+        ClipboardManager clipboardManager;
+        clipboardManager = (ClipboardManager) ctx.getSystemService(ctx.CLIPBOARD_SERVICE);
+        holder.title.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String text = chat.title.length() > 0 ? chat.title : chat.inviteLink;
+                ClipData clipData = ClipData.newPlainText("text", text);
+                clipboardManager.setPrimaryClip(clipData);
+
+                Toast.makeText(ctx.getApplicationContext(), "Ссылка успешно скопировано!",Toast.LENGTH_SHORT).show();
+            }
+        });
 
         holder.link.setOnClickListener(View -> {
             Intent intent = new Intent(this.ctx, ChatAC.class);
