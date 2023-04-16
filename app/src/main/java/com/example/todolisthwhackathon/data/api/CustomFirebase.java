@@ -78,8 +78,7 @@ public class CustomFirebase {
         mDatabase.child("chats").child(chatID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                list.add(snapshot.getValue(Chat.class));
-
+                if (snapshot.exists()) list.add(snapshot.getValue(Chat.class));
             }
 
             @Override

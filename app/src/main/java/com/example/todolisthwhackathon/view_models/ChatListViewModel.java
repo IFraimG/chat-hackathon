@@ -32,14 +32,11 @@ public class ChatListViewModel extends AndroidViewModel {
     }
 
     public LiveData<List<Chat>> getAllChats(String userID) {
-        // test
-        Chat chat = new Chat("iiii");
-        List<Chat> list = new ArrayList<>();
-
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.child("chats").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                List<Chat> list = new ArrayList<>();
                 if (dataSnapshot.exists()) {
                     for (DataSnapshot ds : dataSnapshot.getChildren()) {
                         Chat chat = ds.getValue(Chat.class);
@@ -49,6 +46,7 @@ public class ChatListViewModel extends AndroidViewModel {
                             }
                         }
                     }
+                    _chats.setValue(list);
                 }
             }
 
@@ -58,14 +56,14 @@ public class ChatListViewModel extends AndroidViewModel {
             }
         });
 //        chats.add(chat);
-        _chats.setValue(list);
+//        _chats.setValue(list);
 //        _chats.setValue(CustomFirebase.getAllChats(userID));
 
         return _chats;
     }
 
-    public void addChat(Chat advertisement) {
-        chats.add(advertisement);
+    public void addChat(Chat chat) {
+        chats.add(chat);
         _chats.setValue(chats);
         // запрос на сервер
     }

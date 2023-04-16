@@ -15,7 +15,9 @@ public class ChatAC extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
-        String chatID = getIntent().getStringExtra("chatID");
-        CustomFirebase.findChat(chatID);
+        if (getIntent() != null) {
+//            String chatID = getIntent().getStringExtra("chatID");
+//            CustomFirebase.findChat(chatID);
+        }
     }
 }

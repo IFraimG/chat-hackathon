@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -26,7 +28,10 @@ import com.example.todolisthwhackathon.data.entities.Chat;
 import com.example.todolisthwhackathon.view_models.ChatListViewModel;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 import java.util.List;
@@ -65,6 +70,9 @@ public class Fragment_Chat extends Fragment {
         });
 
         Button createChat = (Button) view.findViewById(R.id.create_chat);
+        Button joinChat = (Button) view.findViewById(R.id.join_chat);
+        EditText inputId = (EditText) view.findViewById(R.id.input_id);
+
         createChat.setOnClickListener(View -> {
             Chat chat = new Chat(id);
             FirebaseDatabase.getInstance().getReference().child("chats").child(chat.chatID).setValue(chat).addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -72,8 +80,7 @@ public class Fragment_Chat extends Fragment {
                 public void onSuccess(Void unused) {
                     Intent intent = new Intent(getContext(), ChatAC.class);
                     intent.putExtra("chatID", chat.chatID);
-// вылетает
-//                    startActivity(intent);
+                    startActivity(intent);
                 }
 
             }).addOnFailureListener(new OnFailureListener() {
@@ -85,6 +92,51 @@ public class Fragment_Chat extends Fragment {
 
         });
 
+
+        joinChat.setOnClickListener(View -> {
+            FirebaseDatabase.getInstance().getReference().child("chats").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            for (DataSnapshot ds : snapshot.getChildren()) {
+                                Chat chat = ds.getValue(Chat.class);
+                                if (chat != null && chat.inviteLink.equals(inputId.getText().toString())) {
+                                    List<String> usersID = chat.usersID;
+                                    if (!usersID.contains(id)) {
+                                        usersID.add(id);
+                                        String key = ds.getKey();
+                                        FirebaseDatabase.getInstance().getReference().child("chats").child(key).child("usersID").setValue(usersID);
+                                        Toast.makeText(getContext(), "Вступление прошло успешно!", Toast.LENGTH_SHORT).show();
+                                        inputId.setText("");
+                                    }
+                                }
+                            }
+
+                        }
+//                            FirebaseDatabase.getInstance().getReference().child("chats").child("inviteLink").child(inputId.getText().toString())
+//                        if (snapshot.exists()) list.add(snapshot.getValue(Chat.class));
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+//            FirebaseDatabase.getInstance().getReference().child("chats").child(inputId.getText().toString()).setValue(chat).addOnSuccessListener(new OnSuccessListener<Void>() {
+//                @Override
+//                public void onSuccess(Void unused) {
+//                    Intent intent = new Intent(getContext(), ChatAC.class);
+//                    intent.putExtra("chatID", chat.chatID);
+//                    startActivity(intent);
+//                }
+//
+//            }).addOnFailureListener(new OnFailureListener() {
+//                @Override
+//                public void onFailure(@NonNull Exception e) {
+//                    Log.e("err", e.toString());
+//                }
+//            });
+        });
         return view;
     }
 }

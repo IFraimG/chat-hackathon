@@ -11,6 +11,7 @@
         <entry key="app/src/main/res/layout/fragment_chat.xml" value="0.20625" />
         <entry key="app/src/main/res/layout/fragment_habit_calendar.xml" value="0.17962962962962964" />
         <entry key="app/src/main/res/layout/fragment_habit_calendar_item.xml" value="0.17962962962962964" />
+        <entry key="app/src/main/res/layout/message_item.xml" value="0.5923543294270833" />
       </map>
     </option>
   </component>
