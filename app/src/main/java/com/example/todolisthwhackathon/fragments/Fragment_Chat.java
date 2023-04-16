@@ -78,6 +78,7 @@ public class Fragment_Chat extends Fragment {
             FirebaseDatabase.getInstance().getReference().child("chats").child(chat.chatID).setValue(chat).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void unused) {
+                    viewModel.getAllChats(id);
                     Intent intent = new Intent(getContext(), ChatAC.class);
                     intent.putExtra("chatID", chat.chatID);
                     startActivity(intent);
