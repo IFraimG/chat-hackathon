@@ -87,7 +87,6 @@ public class RegistrationActivity extends AppCompatActivity {
                                     colUs = 0;
                                 }
                             }
-                            return null;
                         }
 
                     });
@@ -157,7 +156,7 @@ public class RegistrationActivity extends AppCompatActivity {
                         Toast.makeText(RegistrationActivity.this, "Данные введены неверно", Toast.LENGTH_SHORT).show();
                     }
                 }
-                return null;
+
             }
         });
     }
