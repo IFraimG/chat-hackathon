@@ -26,6 +26,7 @@ public class MessageListAdapter extends RecyclerView.Adapter<MessageListAdapter.
     Context ctx;
     private List<Message> messages = new ArrayList<>();
     private final LayoutInflater inflater;
+    String authorID;
 
     public MessageListAdapter(Context context) {
         this.ctx = context;
