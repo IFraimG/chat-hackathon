@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
 
         viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
 
-        viewPagerAdapter.add(new Fragment_News(), "погода");
+        //viewPagerAdapter.add(new Fragment_News(), "погода");
         viewPagerAdapter.add(new Fragment_Chat(), "чат");
         viewPagerAdapter.add(new Fragment_Profil(), "профиль");
         viewPagerAdapter.add(new Fragment_Settings(), "настройки");
