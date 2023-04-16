@@ -107,6 +107,10 @@ public class Fragment_Chat extends Fragment {
                                         FirebaseDatabase.getInstance().getReference().child("chats").child(key).child("usersID").setValue(usersID);
                                         Toast.makeText(getContext(), "Вступление прошло успешно!", Toast.LENGTH_SHORT).show();
                                         inputId.setText("");
+
+                                        Intent intent = new Intent(getActivity(), ChatAC.class);
+                                        intent.putExtra("chatID", chat.chatID);
+                                        startActivity(intent);
                                     }
                                 }
                             }
