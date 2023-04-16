@@ -41,8 +41,7 @@ public class MessageListAdapter extends RecyclerView.Adapter<MessageListAdapter.
         Message message = messages.get(position);
         holder.text.setText(message.text);
         holder.date.setText(message.dateOfCreated.toString());
-        // найти имя пользователя
-//        holder.user.setText(message.user.toString());
+        holder.user.setText(message.login);
     }
 
     @Override

@@ -3,7 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/activity_chat.xml" value="0.1921875" />
+        <entry key="app/src/main/res/layout/activity_chat.xml" value="0.47888031005859377" />
         <entry key="app/src/main/res/layout/activity_habits_list.xml" value="0.13703703703703704" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.13703703703703704" />
         <entry key="app/src/main/res/layout/chat_item.xml" value="0.20625" />
@@ -15,7 +15,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

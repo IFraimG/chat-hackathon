@@ -82,7 +82,6 @@ public class Fragment_Chat extends Fragment {
                     intent.putExtra("chatID", chat.chatID);
                     startActivity(intent);
                 }
-
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
@@ -111,10 +110,7 @@ public class Fragment_Chat extends Fragment {
                                     }
                                 }
                             }
-
                         }
-//                            FirebaseDatabase.getInstance().getReference().child("chats").child("inviteLink").child(inputId.getText().toString())
-//                        if (snapshot.exists()) list.add(snapshot.getValue(Chat.class));
                     }
 
                     @Override
@@ -122,20 +118,6 @@ public class Fragment_Chat extends Fragment {
 
                     }
                 });
-//            FirebaseDatabase.getInstance().getReference().child("chats").child(inputId.getText().toString()).setValue(chat).addOnSuccessListener(new OnSuccessListener<Void>() {
-//                @Override
-//                public void onSuccess(Void unused) {
-//                    Intent intent = new Intent(getContext(), ChatAC.class);
-//                    intent.putExtra("chatID", chat.chatID);
-//                    startActivity(intent);
-//                }
-//
-//            }).addOnFailureListener(new OnFailureListener() {
-//                @Override
-//                public void onFailure(@NonNull Exception e) {
-//                    Log.e("err", e.toString());
-//                }
-//            });
         });
         return view;
     }

@@ -12,12 +12,12 @@ public class Message {
     public String login;
 
     public Message() {
-
     }
 
     public Message(String text, String authorID, String chatID) {
         this.authorID = authorID;
         this.chatID = chatID;
+        this.text = text;
         this.dateOfCreated = new Date();
         this.login = "";
         this.messageID = UUID.randomUUID().toString();
