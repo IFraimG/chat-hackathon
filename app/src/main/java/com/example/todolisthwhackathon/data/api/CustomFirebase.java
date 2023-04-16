@@ -1,9 +1,11 @@
 package com.example.todolisthwhackathon.data.api;
 
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 
+import com.example.todolisthwhackathon.data.SharedPreferences.Constants;
 import com.example.todolisthwhackathon.data.entities.Chat;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -13,6 +15,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.checkerframework.checker.units.qual.A;
 import org.checkerframework.checker.units.qual.C;
@@ -22,6 +28,8 @@ import java.util.List;
 
 public class CustomFirebase {
     static private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+
+
 
     static public List<Chat> getAllChats(String userID) {
         List<Chat> list = new ArrayList<>();
@@ -89,4 +97,27 @@ public class CustomFirebase {
 
         return list.get(0);
     }
+
+    // метод для получения имени пользователя по его id
+
+    //CollectionReference collectionRef = FirebaseFirestore.getInstance().collection("Users");
+    //DocumentReference documentRef = collectionRef.document(Id);
+    //    documentRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+    //    @Override
+    //    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+    //        if (task.isSuccessful()) {
+    //            DocumentSnapshot document = task.getResult();
+    //            if (document.exists()) {
+    //                // Получить значение поля
+    //                Object field = document.get("userName");
+    //
+    //                // Обработать значение поля
+    //            } else {
+    //                // Обработать ошибку
+    //            }
+    //        } else {
+    //            // Обработать ошибку
+    //        }
+    //    }
+    //});
 }
