@@ -4,4 +4,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_message">MessageActivity</string>
     <string name="title_activity_main2">MainActivity2</string>
+    <string name="label">Общайся и точка</string>
+    <string name="save">Сохранить</string>
+    <string name="password">Password</string>
 </resources>

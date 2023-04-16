@@ -19,6 +19,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.todolisthwhackathon.adapters.ViewPagerAdapter;
 import com.example.todolisthwhackathon.data.SharedPreferences.Constants;
 import com.example.todolisthwhackathon.fragments.Fragment_Chat;
+import com.example.todolisthwhackathon.fragments.Fragment_News;
 import com.example.todolisthwhackathon.fragments.Fragment_Profil;
 import com.example.todolisthwhackathon.fragments.Fragment_Settings;
 import com.example.todolisthwhackathon.registration.RegistrationActivity;
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private ViewPagerAdapter viewPagerAdapter;
     private ViewPager viewPager;
     private TabLayout tabLayout;
+
 
     private EditText editName, editPassword;
 
@@ -95,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
 
         viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
 
-
+        //viewPagerAdapter.add(new Fragment_News(), "погода");
         viewPagerAdapter.add(new Fragment_Chat(), "чат");
         viewPagerAdapter.add(new Fragment_Profil(), "профиль");
         viewPagerAdapter.add(new Fragment_Settings(), "настройки");
