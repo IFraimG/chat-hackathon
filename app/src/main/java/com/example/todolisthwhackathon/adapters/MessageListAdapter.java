@@ -17,7 +17,9 @@ import com.example.todolisthwhackathon.activities.ChatAC;
 import com.example.todolisthwhackathon.data.entities.Chat;
 import com.example.todolisthwhackathon.data.entities.Message;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class MessageListAdapter extends RecyclerView.Adapter<MessageListAdapter.ViewHolder> {
@@ -40,7 +42,14 @@ public class MessageListAdapter extends RecyclerView.Adapter<MessageListAdapter.
     public void onBindViewHolder(MessageListAdapter.ViewHolder holder, int position) {
         Message message = messages.get(position);
         holder.text.setText(message.text);
-        holder.date.setText(message.dateOfCreated.toString());
+
+        long dateLong = Long.parseLong(message.dateOfCreated);
+        Date date = new Date(dateLong);
+
+        SimpleDateFormat df2 = new SimpleDateFormat("dd/MM/yy");
+        holder.date.setText(df2.format(date));
+
+//        holder.date.setText(message.dateOfCreated.toString());
         holder.user.setText(message.login);
     }
 

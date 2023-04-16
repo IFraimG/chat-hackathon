@@ -8,7 +8,7 @@ public class Message {
     public String text;
     public String chatID;
     public String messageID;
-    public Date dateOfCreated;
+    public String dateOfCreated;
     public String login;
 
     public Message() {
@@ -18,7 +18,7 @@ public class Message {
         this.authorID = authorID;
         this.chatID = chatID;
         this.text = text;
-        this.dateOfCreated = new Date();
+        this.dateOfCreated = Long.toString(new Date().getTime());
         this.login = "";
         this.messageID = UUID.randomUUID().toString();
     }

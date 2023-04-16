@@ -10,7 +10,7 @@ public class Chat {
     public List<String> usersID;
     public String title = "";
     public String inviteLink;
-    public Date createdAt = new Date();
+    public String createdAt = Long.toString(new Date().getTime());
 
     public Chat() {
 

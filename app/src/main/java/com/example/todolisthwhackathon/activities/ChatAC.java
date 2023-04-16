@@ -88,6 +88,7 @@ public class ChatAC extends AppCompatActivity {
                     Message message = new Message(messageInput.getText().toString(), userID, chatID);
                     FirebaseDatabase.getInstance().getReference().child("messages").child(message.messageID).setValue(message);
                     messageInput.setText("");
+                    viewModel.getAllMessages(userID, chatID);
                 }
             });
 
