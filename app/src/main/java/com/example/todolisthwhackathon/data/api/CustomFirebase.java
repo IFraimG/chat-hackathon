@@ -14,6 +14,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.checkerframework.checker.units.qual.A;
 import org.checkerframework.checker.units.qual.C;
 
 import java.util.ArrayList;
@@ -70,5 +71,23 @@ public class CustomFirebase {
 
     static public void createChat(Chat chat) {
         mDatabase.child("chats").child(chat.chatID).setValue(chat);
+    }
+
+    static public Chat findChat(String chatID) {
+        List<Chat> list = new ArrayList<>();
+        mDatabase.child("chats").child(chatID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                list.add(snapshot.getValue(Chat.class));
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        return list.get(0);
     }
 }
