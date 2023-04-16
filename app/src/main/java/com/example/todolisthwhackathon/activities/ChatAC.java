@@ -91,7 +91,7 @@ public class ChatAC extends AppCompatActivity {
                 }
             });
 
-            TextView returnChat = (TextView) findViewById(R.id.returnChat);
+            ImageView returnChat = (ImageView) findViewById(R.id.returnChat);
             returnChat.setOnClickListener(View -> finish());
         }
     }
