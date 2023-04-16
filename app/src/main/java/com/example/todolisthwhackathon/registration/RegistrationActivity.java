@@ -27,19 +27,9 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 public class RegistrationActivity extends AppCompatActivity {
-
-    // creating variables for our edit text
     private EditText UserNameEdt, PasswordEdt;
-
-    // creating variable for button
     private ImageButton submit, chek;
-
-    // creating a strings for storing
-    // our values from edittext fields.
     private String UserName, Password;
-
-    // creating a variable
-    // for firebasefirestore.
     private FirebaseFirestore db;
     private static int colUs = 0;
 
@@ -48,8 +38,7 @@ public class RegistrationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
 
-        // getting our instance
-        // from Firebase Firestore.
+
         db = FirebaseFirestore.getInstance();
 
         // initializing our edittext and buttons
